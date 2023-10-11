@@ -1,0 +1,16 @@
+https://leetcode.com/problems/two-sum/
+Easy--
+
+Time complexity - O(n)
+
+var twoSum = function(nums, target) {
+    let obj = {};
+
+    for (let i = 0; i < nums.length; i++) {
+    const n = nums[i];
+    if (obj[target - n] !== undefined) {
+        return [obj[target - n], i];
+    }
+    obj[n] = i;
+    }
+};
