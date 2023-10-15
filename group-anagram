@@ -5,31 +5,32 @@ Medium---
 Time Complexity -- m*nlogn
 
 var groupAnagrams = function(strs) {
-    let a = []
-let res = []
-let obj = {}
+  let a = []
+  let res = []
+  let obj = {}
 
-for (let i in strs){
-	const n = strs[i].split('').sort().join('')
-  a.push(n)
-  if(obj[a[i]] !== undefined){
-  	obj[a[i]] = [...obj[a[i]],i]
-    continue
+  for (let i in strs) {
+    const n = strs[i].split('').sort().join('')
+    a.push(n)
+    if (obj[a[i]] !== undefined) {
+      obj[a[i]] = [...obj[a[i]], i]
+      continue
+    }
+    obj[a[i]] = [i]
   }
-  obj[a[i]] = [i]
-  }
-  
-const freq = Object.values(obj)
+
+  const freq = Object.values(obj)
 
 
-freq.map((item) => {
-let x = []
-	item.map((value) => {
-  x.push(strs[value])
+  freq.map((item) => {
+    let x = []
+    item.map((value) => {
+      x.push(strs[value])
+    })
+    res.push(x)
   })
-  res.push(x)
-})
 
-return res;
+  return res;
 
 };
+
