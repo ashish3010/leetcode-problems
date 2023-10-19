@@ -1,0 +1,49 @@
+JavaScript -----
+
+238. Product of Array Except Self
+https://leetcode.com/problems/product-of-array-except-self/
+Medium ----
+
+Bruteforce solution --
+Time Complexity - O(n*n)
+will not pass all the test cases , bcoz it will exceed the time limit
+
+var productExceptSelf = function(nums) {
+  const res = []
+  for (let i in nums) {
+    let x = 1
+    for (let j in nums) {
+      if (i === j) {
+        continue
+      }
+      x = x * nums[j]
+    }
+    res.push(x)
+  }
+
+  return res
+};
+
+Optimum Solution ---
+Time Complexity - O(n)
+
+var productExceptSelf = function(nums) {
+  const res = []
+  
+  let prefix = 1
+  for (let i in nums) {
+    if (res.length === nums.length) {
+      break
+    }
+    res[i] = prefix;
+    prefix *= nums[i]
+  }
+
+  let postfix = 1;
+  for (let i = nums.length - 1; i >= 0; i--) {
+    res[i] *= postfix;
+    postfix *= nums[i]
+  }
+
+  return res
+};
