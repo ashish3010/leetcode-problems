@@ -1,3 +1,0 @@
-# leetcode-problems
-
-I will upload as many as leetcode problem's solutions as I can ...
