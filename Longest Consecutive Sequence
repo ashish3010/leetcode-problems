@@ -1,0 +1,26 @@
+JavaScript
+
+128. Longest Consecutive Sequence
+Medium
+
+https://leetcode.com/problems/longest-consecutive-sequence/description/
+Time Complexity: o(n)
+
+var longestConsecutive = function(nums) {
+  const set = {}
+  for (let i = 0; i < nums.length; i++) {
+    set[nums[i]] = true
+  }
+
+  let longest = 0
+  for (let i = 0; i < nums.length; i++) {
+    if (set[nums[i] - 1] === undefined) {
+      length = 0
+      while (set[nums[i] + length]) {
+        length++
+      }
+      longest = Math.max(length, longest)
+    }
+  }
+  return longest;
+};
